@@ -53,7 +53,6 @@ export class AdminResolver {
   // Set by depenency injection
   constructor(private em: () => Promise<EntityManager>) {}
 
-  @UseMiddleware(OperatorOnly)
   @Mutation(() => VideoWeights)
   async setVideoWeights(@Args() args: SetVideoWeightsInput): Promise<VideoWeights> {
     const em = await this.em()
